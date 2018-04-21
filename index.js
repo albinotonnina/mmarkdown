@@ -1,35 +1,19 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
-var program = require('commander')
-
-function list(val) {
-  return val.split(',').map(Number)
-}
-
-program
-  .version('0.0.1')
-  .option(
-    '-t, --template-engine [engine]',
-    'Add template [engine] support',
-    'jade'
+require('yargs')
+  .usage('$0 <cmd> [args]')
+  .command(
+    'hello [name]',
+    'welcome ter yargs!',
+    yargs => {
+      yargs.positional('name', {
+        type: 'string',
+        default: 'Cambi',
+        describe: 'the name to say hello to'
+      })
+    },
+    function(argv) {
+      console.log('hello', argv.name, 'welcome to yargs!')
+    }
   )
-  .option(
-    '-c, --cheese [type]',
-    'Add the specified type of cheese [marble]',
-    'marble'
-  )
-  .option(
-    '-l, --list [items]',
-    'Specify list items defaulting to 1,2,3',
-    list,
-    [1, 2, 3]
-  )
-  .parse(process.argv)
-
-console.log('  - %s template engine', program.templateEngine)
-console.log('  - %s cheese', program.cheese)
-console.log('  - %j', program.list)
+  .help().argv
