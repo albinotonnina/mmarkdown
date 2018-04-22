@@ -54,13 +54,6 @@ execa@^0.7.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
-extract-gfm@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/extract-gfm/-/extract-gfm-0.1.0.tgz#6cdaeb14eb46e3bd3ba464d98171d05a83acff6b"
-  dependencies:
-    gfm-code-block-regex "^0.2.1"
-    gfm-code-blocks "^0.2.0"
-
 find-up@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
@@ -82,26 +75,6 @@ get-caller-file@^1.0.1:
 get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
-
-gfm-code-block-regex@^0.2.1:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/gfm-code-block-regex/-/gfm-code-block-regex-0.2.3.tgz#0b9fe68acf2c5a5022fd6d2d418a634f6e97c110"
-
-gfm-code-block-regex@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gfm-code-block-regex/-/gfm-code-block-regex-1.0.0.tgz#bb83c7d6284e6b5b72fa02198a58ac0d256215d2"
-
-gfm-code-blocks@^0.2.0:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/gfm-code-blocks/-/gfm-code-blocks-0.2.2.tgz#2999d8148c451b86632c71fa6debe115ee071ffe"
-  dependencies:
-    gfm-code-block-regex "^0.2.1"
-
-gfm-code-blocks@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gfm-code-blocks/-/gfm-code-blocks-1.0.0.tgz#614d21059b844c6bbc9d588c089b25c4e8bccf0d"
-  dependencies:
-    gfm-code-block-regex "^1.0.0"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
