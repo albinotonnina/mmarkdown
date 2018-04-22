@@ -1,11 +1,14 @@
 {
   "name": "mmarkdown",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "bin": {
     "mmarkdown": "index.js"
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "start": "node index.js",
     "make": "node index.js",
