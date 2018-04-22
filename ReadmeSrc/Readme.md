@@ -86,9 +86,9 @@ return myFinalString
 Options:
   --help        Show help                                              [boolean]
   --version     Show version number                                    [boolean]
-  --backup                                                       [default: true]
-  --backupPath                                 [default: "./src.readme/backup/"]
-  --scripts                                  [default: "./src.readme/Readme.js"]
-  --src                                      [default: "./src.readme/Readme.md"]
+  --src                                       [default: "./ReadmeSrc/Readme.md"]
   --out                                                 [default: "./Readme.md"]
+  --backup                                                       [default: true]
+  --backupPath                                  [default: "./ReadmeSrc/backup/"]
+  --scripts                                   [default: "./ReadmeSrc/Readme.js"]
 ```
