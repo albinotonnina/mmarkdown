@@ -4,11 +4,11 @@ const mmarkdown = require('./src/mmarkdown')
 
 const argv = require('yargs')
   .pkgConf('mmarkdown')
+  .default('src', './ReadmeSrc/Readme.md')
+  .default('out', './Readme.md')
   .default('backup', true)
-  .default('backupPath', './src.readme/backup/')
-  .default('scripts', './src.readme/Readme.js')
-  .default('src', './src.readme/Readme.md')
-  .default('out', './Readme.md').argv
+  .default('backupPath', './ReadmeSrc/backup/')
+  .default('scripts', './ReadmeSrc/Readme.js').argv
 
 const app = async options => {
   try {
