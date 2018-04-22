@@ -81,3 +81,14 @@ const myFinalString = something.map(item => '## ' + item.name)
 
 return myFinalString
 ```
+
+```
+Options:
+  --help        Show help                                              [boolean]
+  --version     Show version number                                    [boolean]
+  --backup                                                       [default: true]
+  --backupPath                                 [default: "./src.readme/backup/"]
+  --scripts                                  [default: "./src.readme/Readme.js"]
+  --src                                      [default: "./src.readme/Readme.md"]
+  --out                                                 [default: "./Readme.md"]
+```
