@@ -1,18 +1,27 @@
 'use strict'
 const path = require('path')
+
 const CWD = process.cwd()
 
-const re = /^ *(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/gm
+const fencedBlockRegex = /^ *(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/gm
+
+const idRegex = /(__FENCED\d+__)/g
+
+const createBlock = function(o) {
+  return '```' + o.lang + '\n' + o.code + '\n```\n'
+}
+
+const id = i => '__FENCED' + i + '__'
 
 const codeBlocks = function(str) {
   if (typeof str !== 'string') {
     throw new TypeError('expected a string')
   }
 
-  var blocks = []
-  var match = null
+  let blocks = []
+  let match = null
 
-  while ((match = re.exec(str))) {
+  while ((match = fencedBlockRegex.exec(str))) {
     blocks.push({
       start: match.index,
       end: match.index + match[1].length,
@@ -24,60 +33,42 @@ const codeBlocks = function(str) {
   return blocks
 }
 
-const idRegex = /(__CODE_BLOCK\d+__)/g
-
-module.exports.stripBlocks = function(str) {
-  var arr = str.match(re) || []
-  return arr.reduce(function(acc, match, i) {
-    return acc.replace(match, exports.id(i))
-  }, str)
+const stripBlocks = function(str) {
+  const arr = str.match(fencedBlockRegex) || []
+  return arr.reduce((acc, match, i) => acc.replace(match, id(i)), str)
 }
 
-module.exports.extractBlocks = function(str) {
-  return codeBlocks(str)
+const extractBlocks = str => codeBlocks(str)
+
+const parseBlocks = str => {
+  const text = stripBlocks(str)
+  const blocks = codeBlocks(str)
+  const markers = text.match(idRegex) || []
+
+  return {text, blocks, markers}
 }
 
-module.exports.parseBlocks = function(str) {
-  const o = {}
-  o.text = exports.stripBlocks(str)
-  o.blocks = codeBlocks(str)
-  o.markers = o.text.match(idRegex) || []
+const injectBlocks = async (str, o, jsFile) => {
+  const fenceBlocks = str.match(idRegex) || []
+  const scriptsFile = require(path.join(CWD, jsFile))
+  const AsyncFunction = Object.getPrototypeOf(async function() {}).constructor
 
-  return o
-}
-
-module.exports.injectBlocks = async function(str, o, jsFile) {
-  var arr = str.match(idRegex) || []
-
-  const sss = async (acc, match, i) => {
+  const reducer = async (acc, match, i) => {
     const block = o[i]
+    const _acc = await acc
 
-    if (block.lang === 'mmd') {
-      const _acc = await acc
+    const output =
+      block.lang === 'mmd'
+        ? (await new AsyncFunction('scripts', block.code)(scriptsFile)) + '\n'
+        : createBlock(block)
 
-      const scriptsFile = require(path.join(CWD, jsFile))
-
-      const AsyncFunction = Object.getPrototypeOf(async function() {})
-        .constructor
-
-      const final = await new AsyncFunction('scripts', block.code)(scriptsFile)
-
-      return Promise.resolve(_acc.replace(match, final + '\n'))
-    } else {
-      const _acc = await acc
-      return Promise.resolve(
-        _acc.replace(match, exports.createBlock(block) + '\n')
-      )
-    }
+    return Promise.resolve(_acc.replace(match, output + '\n'))
   }
 
-  return await arr.reduce(sss, str)
+  return await fenceBlocks.reduce(reducer, str)
 }
 
-module.exports.createBlock = function(o) {
-  return '```' + o.lang + '\n' + o.code + '\n```\n'
-}
-
-module.exports.id = function(i) {
-  return '__CODE_BLOCK' + i + '__'
+module.exports = {
+  parseBlocks,
+  injectBlocks
 }
