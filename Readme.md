@@ -1,3 +1,5 @@
+<p align="center"><img src="https://img.ziggi.org/BY9iI48Q.png" /></p>
+
 # mmarkdown
 
 > Caffeinated markdown ☕️
@@ -41,7 +43,7 @@ yarn add mmarkdown --dev
       "out": "./Readme.md",
       "scripts": "./Readme/Readme.js",
       "backup": "true",
-      "backupPath": "./Readme/backup"
+      "backupPath": "./Readme/backup/"
     }
 }
 ```
@@ -84,7 +86,9 @@ Everything that is returned (as a string) from the code in the block will be int
 
 It's full async, which is cool, _lots of `awaits` are waiting for you_ there but soon enough you will face a problem: too much code to write in a markdown file! Terrible experience!
 
-The solution in mmarkdown is in the `scripts` option. The module that the scripts file returns will be passed to the context of the fenced block, see [example 3](#example3),
+The solution in mmarkdown is in the `scripts` option. The module that the scripts file returns will be passed to the context of the fenced block, see [example 3](#example3).
+
+The `backup` option, false by default, will make a copy of the current output file, postfix it with a timestamp and move it into `backupPath`.
 
 ### Example 1
 

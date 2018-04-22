@@ -6,12 +6,9 @@
   "bin": {
     "mmarkdown": "index.js"
   },
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "scripts": {
     "start": "node index.js",
-    "make": "node index.js",
     "help": "node index.js --help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,7 +16,8 @@
     "type": "git",
     "url": "git+https://github.com/albinotonnina/mmarkdown.git"
   },
-  "author": "Albino Tonnina <albinotonnina@gmail.com> (http://www.albinotonnina.com)",
+  "author":
+    "Albino Tonnina <albinotonnina@gmail.com> (http://www.albinotonnina.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/albinotonnina/mmarkdown/issues"
@@ -29,5 +27,12 @@
     "fs-extra": "^5.0.0",
     "path-extra": "^4.2.1",
     "yargs": "^11.0.0"
+  },
+  "mmarkdown": {
+    "src": "./ReadmeSrc/Readme.md",
+    "out": "./Readme.md",
+    "scripts": "./ReadmeSrc/Readme.js",
+    "backup": "true",
+    "backupPath": "./ReadmeSrc/backup/"
   }
 }
