@@ -1,12 +1,14 @@
 {
   "name": "mmarkdown",
-  "version": "0.2.4",
+  "version": "1.0.0",
   "description": "Caffeinated markdown",
   "main": "index.js",
   "bin": {
     "mmarkdown": "index.js"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "start": "node index.js",
     "help": "node index.js --help",
@@ -16,8 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/albinotonnina/mmarkdown.git"
   },
-  "author":
-    "Albino Tonnina <albinotonnina@gmail.com> (http://www.albinotonnina.com)",
+  "author": "Albino Tonnina <albinotonnina@gmail.com> (http://www.albinotonnina.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/albinotonnina/mmarkdown/issues"
