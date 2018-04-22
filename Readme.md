@@ -25,11 +25,13 @@ Add the following section to your package.json:
   }
 }
 ```
+
 ## Running from command line
 
 ```
 mmarkdown --src ./src.readme/Readme.md --out ./Readme.md --backup true --scripts ./src.readme/Readme.js
 ```
+
 # Example 1
 
 ```javascript
@@ -39,10 +41,10 @@ const hello = message => {
 
 return hello('### hippieeeeee hippie yeeeee!!!!!!!!')
 ```
+
 ### output:
 
 ### hippieeeeee hippie yeeeee!!!!!!!!
-
 # Example 2
 
 Whatever module you pass as `scripts` is passed in the mmd fence block.
@@ -52,16 +54,16 @@ Eg. here [js.processMyArray](./src.readme/Readme.js)
 ```javascript
 const array = [1, 3, 5]
 
-const myFinalString = js
-  .processMyArray(array)
-  .map(item => '### ' + item.name)
+const something = await scripts.processMyArray(array)
+
+const myFinalString = something.map(item => '### ' + item.name)
   .join('\n')
 
 return myFinalString
 ```
+
 ### output:
 
-### 1
-### 3
-### 5
-
+### 1 async
+### 3 async
+### 5 async

@@ -1,7 +1,13 @@
 module.exports = {
   foo: 'bar',
-  processMyArray: array =>
-    array.map(item => ({
-      name: item
-    }))
+  processMyArray: async array =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve(
+          array.map(item => ({
+            name: item + ' async'
+          }))
+        )
+      }, 1000)
+    })
 }

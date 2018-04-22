@@ -61,9 +61,9 @@ Eg. here [js.processMyArray](./src.readme/Readme.js)
 ```javascript
 const array = [1, 3, 5]
 
-const myFinalString = js
-  .processMyArray(array)
-  .map(item => '### ' + item.name)
+const something = await scripts.processMyArray(array)
+
+const myFinalString = something.map(item => '### ' + item.name)
   .join('\n')
 
 return myFinalString
@@ -74,9 +74,9 @@ return myFinalString
 ```mmd
 const array = [1, 3, 5]
 
-const myFinalString = js
-  .processMyArray(array)
-  .map(item => '### ' + item.name)
+const something = await scripts.processMyArray(array)
+
+const myFinalString = something.map(item => '### ' + item.name)
   .join('\n')
 
 return myFinalString

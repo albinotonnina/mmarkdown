@@ -22,7 +22,7 @@ const save = async argv => {
     const data = await files.readFile(argv.src)
     const code = extract.parseBlocks(data)
 
-    const str = extract.injectBlocks(code.text, code.blocks, argv.scripts)
+    const str = await extract.injectBlocks(code.text, code.blocks, argv.scripts)
     await files.writeFile(argv.out, str)
   } catch (err) {
     throw 'save: ' + err

@@ -43,19 +43,44 @@ module.exports.parseBlocks = function(str) {
   return o
 }
 
-module.exports.injectBlocks = function(str, o, jsFile) {
+module.exports.injectBlocks = async function(str, o, jsFile) {
   var arr = str.match(idRegex) || []
-  return arr.reduce(function(acc, match, i) {
+
+  const sss = async (acc, match, i) => {
     const block = o[i]
 
-    return acc.replace(
-      match,
-      block.lang === 'mmd'
-        ? new Function('js', block.code)(require(path.join('../', jsFile))) +
-          '\n\n'
-        : exports.createBlock(block)
-    )
-  }, str)
+    if (block.lang === 'mmd') {
+      const _acc = await acc
+
+      const scriptsFile = require(path.join('../', jsFile))
+
+      var AsyncFunction = Object.getPrototypeOf(async function() {}).constructor
+
+      const final = await new AsyncFunction('scripts', block.code)(scriptsFile)
+
+      return Promise.resolve(_acc.replace(match, final + '\n'))
+    } else {
+      const _acc = await acc
+      return Promise.resolve(
+        _acc.replace(match, exports.createBlock(block) + '\n')
+      )
+    }
+  }
+
+  // return arr.reduce(async (previousPromise, pr) => {
+  //   const collection = await previousPromise
+  //   const allCommits = await getAllCommitsForaPR(pr.number)
+
+  //   const isNotSemverPatchPR = checkCommitMessageForPatch(allCommits[0])
+
+  //   if (isNotSemverPatchPR) {
+  //     collection.push(pr)
+  //   }
+
+  //   return collection
+  // }, Promise.resolve([]))
+
+  return await arr.reduce(sss, str)
 }
 
 module.exports.createBlock = function(o) {
