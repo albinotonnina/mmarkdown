@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "preferGlobal": "true",
   "bin": {
     "mmarkdown": "index.js"
   },
   "scripts": {
+    "start": "node index.js",
+    "make": "node index.js",
+    "help": "node index.js --help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +27,10 @@
     "prettier": "^1.12.1"
   },
   "dependencies": {
+    "extract-gfm": "^0.1.0",
+    "fs-extra": "^5.0.0",
+    "gfm-code-blocks": "^1.0.0",
+    "path-extra": "^4.2.1",
     "yargs": "^11.0.0"
   }
 }

@@ -26,10 +26,6 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-commander@^2.15.1:
-  version "2.15.1"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
-
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -41,6 +37,10 @@ cross-spawn@^5.0.1:
 decamelize@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
+
+escape-string-regexp@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
 execa@^0.7.0:
   version "0.7.0"
@@ -54,11 +54,26 @@ execa@^0.7.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
+extract-gfm@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/extract-gfm/-/extract-gfm-0.1.0.tgz#6cdaeb14eb46e3bd3ba464d98171d05a83acff6b"
+  dependencies:
+    gfm-code-block-regex "^0.2.1"
+    gfm-code-blocks "^0.2.0"
+
 find-up@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
   dependencies:
     locate-path "^2.0.0"
+
+fs-extra@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-5.0.0.tgz#414d0110cdd06705734d055652c5411260c31abd"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
 
 get-caller-file@^1.0.1:
   version "1.0.2"
@@ -67,6 +82,30 @@ get-caller-file@^1.0.1:
 get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
+
+gfm-code-block-regex@^0.2.1:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/gfm-code-block-regex/-/gfm-code-block-regex-0.2.3.tgz#0b9fe68acf2c5a5022fd6d2d418a634f6e97c110"
+
+gfm-code-block-regex@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gfm-code-block-regex/-/gfm-code-block-regex-1.0.0.tgz#bb83c7d6284e6b5b72fa02198a58ac0d256215d2"
+
+gfm-code-blocks@^0.2.0:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/gfm-code-blocks/-/gfm-code-blocks-0.2.2.tgz#2999d8148c451b86632c71fa6debe115ee071ffe"
+  dependencies:
+    gfm-code-block-regex "^0.2.1"
+
+gfm-code-blocks@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gfm-code-blocks/-/gfm-code-blocks-1.0.0.tgz#614d21059b844c6bbc9d588c089b25c4e8bccf0d"
+  dependencies:
+    gfm-code-block-regex "^1.0.0"
+
+graceful-fs@^4.1.2, graceful-fs@^4.1.6:
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
 invert-kv@^1.0.0:
   version "1.0.0"
@@ -89,6 +128,12 @@ is-stream@^1.1.0:
 isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
+
+jsonfile@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
 
 lcid@^1.0.0:
   version "1.0.0"
@@ -162,6 +207,13 @@ path-exists@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-3.0.0.tgz#ce0ebeaa5f78cb18925ea7d810d7b59b010fd515"
 
+path-extra@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/path-extra/-/path-extra-4.2.1.tgz#c792f63109c51b79314a93fa34ab09dfc0dc1a33"
+  dependencies:
+    escape-string-regexp "^1.0.5"
+    replace-ext "^1.0.0"
+
 path-key@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
@@ -173,6 +225,10 @@ prettier@^1.12.1:
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
+
+replace-ext@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.0.tgz#de63128373fcbf7c3ccfa4de5a480c45a67958eb"
 
 require-directory@^2.1.1:
   version "2.1.1"
@@ -230,6 +286,10 @@ strip-ansi@^4.0.0:
 strip-eof@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf"
+
+universalify@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
 
 which-module@^2.0.0:
   version "2.0.0"

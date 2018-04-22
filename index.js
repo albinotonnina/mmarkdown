@@ -1,19 +1,22 @@
 #!/usr/bin/env node
 
-require('yargs')
-  .usage('$0 <cmd> [args]')
-  .command(
-    'hello [name]',
-    'welcome ter yargs!',
-    yargs => {
-      yargs.positional('name', {
-        type: 'string',
-        default: 'Cambi',
-        describe: 'the name to say hello to'
-      })
-    },
-    function(argv) {
-      console.log('hello', argv.name, 'welcome to yargs!')
-    }
-  )
-  .help().argv
+const mmarkdown = require('./src/mmarkdown')
+
+const argv = require('yargs')
+  .default('backup', true)
+  .default('backupPath', './src.readme/backup/')
+  .default('scripts', './src.readme/Readme.js')
+  .default('src', './src.readme/Readme.md')
+  .default('out', './Readme.md')
+  .default('process', './src.readme/Readme.js').argv
+
+const app = async options => {
+  try {
+    await mmarkdown(options)
+    console.log('Success!')
+  } catch (err) {
+    throw 'could not really make it, caaause: ' + err
+  }
+}
+
+app(argv)
