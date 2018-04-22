@@ -45,6 +45,7 @@ return hello('### hippieeeeee hippie yeeeee!!!!!!!!')
 ### output:
 
 ### hippieeeeee hippie yeeeee!!!!!!!!
+
 # Example 2
 
 Whatever module you pass as `scripts` is passed in the mmd fence block.
@@ -56,14 +57,16 @@ const array = [1, 3, 5]
 
 const something = await scripts.processMyArray(array)
 
-const myFinalString = something.map(item => '### ' + item.name)
-  .join('\n')
+const myFinalString = something.map(item => '## ' + item.name)
+  .join('\n\n')
 
 return myFinalString
 ```
 
 ### output:
 
-### 1 async
-### 3 async
-### 5 async
+## 1 async
+
+## 3 async
+
+## 5 async

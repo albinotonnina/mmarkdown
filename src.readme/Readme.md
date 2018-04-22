@@ -63,8 +63,8 @@ const array = [1, 3, 5]
 
 const something = await scripts.processMyArray(array)
 
-const myFinalString = something.map(item => '### ' + item.name)
-  .join('\n')
+const myFinalString = something.map(item => '## ' + item.name)
+  .join('\n\n')
 
 return myFinalString
 ```
@@ -76,8 +76,8 @@ const array = [1, 3, 5]
 
 const something = await scripts.processMyArray(array)
 
-const myFinalString = something.map(item => '### ' + item.name)
-  .join('\n')
+const myFinalString = something.map(item => '## ' + item.name)
+  .join('\n\n')
 
 return myFinalString
 ```
