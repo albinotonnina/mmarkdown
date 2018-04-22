@@ -1,7 +1,7 @@
 {
   "name": "mmarkdown",
   "version": "0.2.4",
-  "description": "",
+  "description": "Caffeinated markdown",
   "main": "index.js",
   "bin": {
     "mmarkdown": "index.js"
