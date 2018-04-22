@@ -1,38 +1,94 @@
-# MMarkdown (WIP)
+# mmarkdown
 
-They say it's hard to write a good Readme.
+> Caffeinated markdown ☕️
 
-Well this app is all about the Readme (or any other md file) 🎉
+Interpret `mmd` fenced code blocks in a markdown file and generate a cooler version of it.
 
-The file you are reading is generated from [this other file](./src.readme/Readme.md)
+### `mmd` fenced code block
 
-(and it dows backuos too :D)
+```javascript
+const name = 'Jessie'
+const hello = '#### Hello '
 
-# Install
+return hello + name
+```
 
-`yarn add mmarkdown --dev`
+### output:
 
-`yarn global add mmarkdown`
+#### Hello Jessie
 
-# Use
+## Table of Contents
 
-Add the following section to your package.json:
+* [Install](#install)
+* [Usage](#usage)
+* [Demo](#demo)
+* [Maintainers](#maintainers)
+* [Contribute](#contribute)
+* [License](#license)
+
+## Install
+
+```
+yarn add mmarkdown --dev
+```
+
+### Config package.json (defaults)
 
 ```
 {
-  "scripts": {
-    "make-readme": "mmarkdown"
+    "mmarkdown": {
+      "src": "./Readme/Readme.md",
+      "out": "./Readme.md",
+      "scripts": "./Readme/Readme.js",
+      "backup": "true",
+      "backupPath": "./Readme/backup"
+    }
+}
+```
+
+```
+{
+  "scripts":{
+    "make-readme": "markdown"
   }
 }
 ```
 
-## Running from command line
+### Command line arguments
+
+| argument   | description                    | default               |
+| ---------- | ------------------------------ | --------------------- |
+| src        | Source md file                 | ./ReadmeSrc/Readme.md |
+| out        | Output md file                 | ./Readme.md           |
+| scripts    | Helper JS file                 | ./ReadmeSrc/Readme.js |
+| backup     | Do a backup of the output file | false                 |
+| backupPath | backup path                    | ./ReadmeSrc/backup/   |
+| help       | Show help                      |                       |
+| version    | Show version number            |                       |
 
 ```
-mmarkdown --src ./src.readme/Readme.md --out ./Readme.md --backup true --scripts ./src.readme/Readme.js
+{
+  "scripts":{
+    "make-readme": "markdown --backup --backupPath ./backupReadme/"
+  }
+}
 ```
 
-# Example 1
+## Usage
+
+Mmarkdown takes a plain markdown file and generates a copy of it.
+
+It starts to be less boring when you add [fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) with the language identifier set to `mmd`.
+
+Everything that is returned (as a string) from the code in the block will be interpreted and replaced to the block in the output file.
+
+It's full async, which is cool, _lots of `awaits` are waiting for you_ there but soon enough you will face a problem: too much code to write in a markdown file! Terrible experience!
+
+The solution in mmarkdown is in the `scripts` option. The module that the scripts file returns will be passed to the context of the fenced block, see [example 3](#example3),
+
+### Example 1
+
+#### `mmd` fenced code block:
 
 ```javascript
 const hello = message => {
@@ -42,17 +98,37 @@ const hello = message => {
 return hello('### hippieeeeee hippie yeeeee!!!!!!!!')
 ```
 
-### output:
+#### output:
 
 ### hippieeeeee hippie yeeeee!!!!!!!!
 
-# Example 2
+### Example 2
 
-Whatever module you pass as `scripts` is passed in the mmd fence block.
-
-Eg. here [js.processMyArray](./src.readme/Readme.js)
+#### `mmd` fenced code block:
 
 ```javascript
+const array = [1, 3, 5]
+
+return array.map(item => '## ' + item).join('\n\n')
+```
+
+#### output:
+
+## 1
+
+## 3
+
+## 5
+
+### Example 3, with Scripts
+
+[this file is passed to mmarkdown with the `scripts` option](./ReadmeSrc/Readme.js).
+
+#### mmd fenced code block:
+
+```javascript
+//scripts is passed
+
 const array = [1, 3, 5]
 
 const something = await scripts.processMyArray(array)
@@ -63,7 +139,7 @@ const myFinalString = something.map(item => '## ' + item.name)
 return myFinalString
 ```
 
-### output:
+#### output:
 
 ## 1 async
 
@@ -71,14 +147,20 @@ return myFinalString
 
 ## 5 async
 
-```
-Options:
-  --help        Show help                                              [boolean]
-  --version     Show version number                                    [boolean]
-  --src                                       [default: "./ReadmeSrc/Readme.md"]
-  --out                                                 [default: "./Readme.md"]
-  --backup                                                       [default: true]
-  --backupPath                                  [default: "./ReadmeSrc/backup/"]
-  --scripts                                   [default: "./ReadmeSrc/Readme.js"]
-```
+## Demo / Boilerplate
 
+The file you are reading right now is generated starting [this other file](./ReadmeSrc/Readme.md).
+
+For a kind of boilerplate repo instead, have a look at [this repo](https://github.com/albinotonnina/mmarkdown-demo).
+
+## Maintainers
+
+[@albinotonnina](https://github.com/albinotonnina)
+
+## Contribute
+
+PRs accepted.
+
+## License
+
+MIT © 2018 Albino Tonnina
