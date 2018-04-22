@@ -3,6 +3,7 @@
 const mmarkdown = require('./src/mmarkdown')
 
 const argv = require('yargs')
+  .pkgConf('mmarkdown')
   .default('backup', true)
   .default('backupPath', './src.readme/backup/')
   .default('scripts', './src.readme/Readme.js')
