@@ -25,13 +25,11 @@ Add the following section to your package.json:
   }
 }
 ```
-
 ## Running from command line
 
 ```
 mmarkdown --src ./src.readme/Readme.md --out ./Readme.md --backup true --scripts ./src.readme/Readme.js
 ```
-
 # Example 1
 
 ```javascript
@@ -41,16 +39,9 @@ const hello = message => {
 
 return hello('### hippieeeeee hippie yeeeee!!!!!!!!')
 ```
-
 ### output:
 
-```mmd
-const hello = message => {
-  return message
-}
-
-return hello('### hippieeeeee hippie yeeeee!!!!!!!!')
-```
+### hippieeeeee hippie yeeeee!!!!!!!!
 
 # Example 2
 
@@ -68,16 +59,9 @@ const myFinalString = js
 
 return myFinalString
 ```
-
 ### output:
 
-```mmd
-const array = [1, 3, 5]
+### 1
+### 3
+### 5
 
-const myFinalString = js
-  .processMyArray(array)
-  .map(item => '### ' + item.name)
-  .join('\n')
-
-return myFinalString
-```
