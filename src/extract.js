@@ -50,7 +50,7 @@ const parseBlocks = str => {
 
 const injectBlocks = async (str, o, jsFile) => {
   const fenceBlocks = str.match(idRegex) || []
-  const scriptsFile = require(path.join(CWD, jsFile))
+  const scriptsFile = jsFile ? require(path.join(CWD, jsFile)) : {}
   const AsyncFunction = Object.getPrototypeOf(async function() {}).constructor
 
   const reducer = async (acc, match, i) => {
