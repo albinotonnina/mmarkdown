@@ -1,6 +1,9 @@
 'use strict'
 const path = require('path')
+const CWD = process.cwd()
+
 const re = /^ *(`{3,}|~{3,}) *(\S+)? *\n([\s\S]+?)\s*\1 *(?:\n+|$)/gm
+
 const codeBlocks = function(str) {
   if (typeof str !== 'string') {
     throw new TypeError('expected a string')
@@ -35,7 +38,7 @@ module.exports.extractBlocks = function(str) {
 }
 
 module.exports.parseBlocks = function(str) {
-  var o = {}
+  const o = {}
   o.text = exports.stripBlocks(str)
   o.blocks = codeBlocks(str)
   o.markers = o.text.match(idRegex) || []
@@ -52,9 +55,10 @@ module.exports.injectBlocks = async function(str, o, jsFile) {
     if (block.lang === 'mmd') {
       const _acc = await acc
 
-      const scriptsFile = require(path.join('../', jsFile))
+      const scriptsFile = require(path.join(CWD, jsFile))
 
-      var AsyncFunction = Object.getPrototypeOf(async function() {}).constructor
+      const AsyncFunction = Object.getPrototypeOf(async function() {})
+        .constructor
 
       const final = await new AsyncFunction('scripts', block.code)(scriptsFile)
 
@@ -66,19 +70,6 @@ module.exports.injectBlocks = async function(str, o, jsFile) {
       )
     }
   }
-
-  // return arr.reduce(async (previousPromise, pr) => {
-  //   const collection = await previousPromise
-  //   const allCommits = await getAllCommitsForaPR(pr.number)
-
-  //   const isNotSemverPatchPR = checkCommitMessageForPatch(allCommits[0])
-
-  //   if (isNotSemverPatchPR) {
-  //     collection.push(pr)
-  //   }
-
-  //   return collection
-  // }, Promise.resolve([]))
 
   return await arr.reduce(sss, str)
 }
