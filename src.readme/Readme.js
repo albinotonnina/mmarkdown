@@ -1,6 +1,6 @@
 module.exports = {
-  something: 'is in the air',
-  process: array =>
+  foo: 'bar',
+  processMyArray: array =>
     array.map(item => ({
       name: item
     }))

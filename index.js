@@ -7,8 +7,7 @@ const argv = require('yargs')
   .default('backupPath', './src.readme/backup/')
   .default('scripts', './src.readme/Readme.js')
   .default('src', './src.readme/Readme.md')
-  .default('out', './Readme.md')
-  .default('process', './src.readme/Readme.js').argv
+  .default('out', './Readme.md').argv
 
 const app = async options => {
   try {
