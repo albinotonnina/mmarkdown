@@ -1,6 +1,6 @@
 {
   "name": "mmarkdown",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -16,20 +16,14 @@
     "type": "git",
     "url": "git+https://github.com/albinotonnina/mmarkdown.git"
   },
-  "author":
-    "Albino Tonnina <albinotonnina@gmail.com> (http://www.albinotonnina.com)",
+  "author": "Albino Tonnina <albinotonnina@gmail.com> (http://www.albinotonnina.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/albinotonnina/mmarkdown/issues"
   },
   "homepage": "https://github.com/albinotonnina/mmarkdown#readme",
-  "devDependencies": {
-    "prettier": "^1.12.1"
-  },
   "dependencies": {
-    "extract-gfm": "^0.1.0",
     "fs-extra": "^5.0.0",
-    "gfm-code-blocks": "^1.0.0",
     "path-extra": "^4.2.1",
     "yargs": "^11.0.0"
   }
