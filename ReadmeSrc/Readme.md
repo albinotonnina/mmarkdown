@@ -23,7 +23,7 @@ return hello + name;
 
 * [Install](#install)
 * [Usage](#usage)
-* [Demo](#demo)
+* [Demo](#demo--boilerplate--real-world-case)
 * [Maintainers](#maintainers)
 * [Contribute](#contribute)
 * [License](#license)
@@ -179,11 +179,13 @@ return myFinalString
 
 (The setTimeout is there just for demo purposes)
 
-## Demo / Boilerplate
+## Demo / Boilerplate / Real world case
 
 The file you are reading right now is generated from [this file](./ReadmeSrc/Readme.md).
 
 For a kind of boilerplate repo instead, have a look at [this repo](https://github.com/albinotonnina/mmarkdown-demo).
+
+If you want to see how I experimented mmarkdown on [Michele Bertoli](https://github.com/MicheleBertoli)' super popular css-in-js project [see here](https://github.com/albinotonnina/css-in-js/tree/mmarkdown)
 
 ## Maintainers
 
