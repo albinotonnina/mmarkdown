@@ -21,12 +21,22 @@ return hello + name;
 
 ## Table of Contents
 
+* [Demo](#demo--boilerplate--real-world-case)
 * [Install](#install)
 * [Usage](#usage)
-* [Demo](#demo--boilerplate--real-world-case)
 * [Maintainers](#maintainers)
 * [Contribute](#contribute)
 * [License](#license)
+
+## Demo / Boilerplate / Real world case
+
+The file you are reading right now is generated from [this file](./ReadmeSrc/Readme.md).
+
+For a kind of boilerplate repo instead, have a look at [this repo](https://github.com/albinotonnina/mmarkdown-demo).
+
+🌎[MicheleBertoli/css-in-js](https://github.com/MicheleBertoli/css-in-js)
+
+🌎[streamich/cross-ci](https://github.com/streamich/cross-ci)
 
 ## Install
 
@@ -179,13 +189,7 @@ return myFinalString
 
 (The setTimeout is there just for demo purposes)
 
-## Demo / Boilerplate / Real world case
 
-The file you are reading right now is generated from [this file](./ReadmeSrc/Readme.md).
-
-For a kind of boilerplate repo instead, have a look at [this repo](https://github.com/albinotonnina/mmarkdown-demo).
-
-If you want to see how I experimented mmarkdown on [Michele Bertoli](https://github.com/MicheleBertoli)' super popular css-in-js project [see here](https://github.com/albinotonnina/css-in-js/tree/mmarkdown)
 
 ## Maintainers
 
