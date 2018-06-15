@@ -2,6 +2,8 @@
 
 # mmarkdown
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/05044458973941749858f50e71effe25)](https://app.codacy.com/app/albinotonnina/mmarkdown?utm_source=github.com&utm_medium=referral&utm_content=albinotonnina/mmarkdown&utm_campaign=badger)
+
 > Markdown on caffeine ☕️
 
 Interpret `mmd` fenced code blocks in a markdown file and generate a cooler version of it.
