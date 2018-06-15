@@ -38,8 +38,6 @@ const stripBlocks = function(str) {
   return arr.reduce((acc, match, i) => acc.replace(match, id(i)), str)
 }
 
-const extractBlocks = str => codeBlocks(str)
-
 const parseBlocks = str => {
   const text = stripBlocks(str)
   const blocks = codeBlocks(str)
