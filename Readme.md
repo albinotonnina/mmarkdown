@@ -58,7 +58,7 @@ yarn add mmarkdown --dev
 ```
 {
   "scripts":{
-    "make-readme": "markdown"
+    "make-readme": "mmarkdown"
   }
 }
 ```
@@ -78,7 +78,7 @@ yarn add mmarkdown --dev
 ```
 {
   "scripts":{
-    "make-readme": "markdown --backup --backupPath ./backupReadme/"
+    "make-readme": "mmarkdown --backup --backupPath ./backupReadme/"
   }
 }
 ```
